@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Tasks;
+use App\Models\Task;
 use Illuminate\Http\JsonResponse;
 
-class TasksController extends Controller
+class TaskController extends Controller
 {
     public function index(): JsonResponse
     {
-        $tasks = Tasks::all();
+        $tasks = Task::all();
         return response()->json($tasks);
     }
 	

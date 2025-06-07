@@ -2,11 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\TasksController;
+use App\Http\Controllers\Api\TaskController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
 
-Route::get('/tasks', [TasksController::class, 'index']);
+Route::get('/tasks', [TaskController::class, 'index']);
