@@ -3,6 +3,7 @@
 namespace App\Bot\Handlers;
 
 use App\Bot\TelegramApi;
+use Illuminate\Support\Facades\Log;
 
 class MessageHandler
 {
@@ -18,6 +19,8 @@ class MessageHandler
         $chatId = $message['chat']['id'];
         $text = $message['text'] ?? '';
 
+		Log::debug('Telegram data:').var_dump($message[);
+
         if ($text === '/start') {
             $this->telegram->sendMessage([
                 'chat_id' => $chatId,
@@ -26,7 +29,7 @@ class MessageHandler
         } else {
             $this->telegram->sendMessage([
                 'chat_id' => $chatId,
-                'text' => "Ви написали: {$text} /n". var_dump($message),
+                'text' => "Ви написали: {$text}",
             ]);
         }
     }
