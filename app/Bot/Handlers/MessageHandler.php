@@ -18,7 +18,7 @@ class MessageHandler
     {
         $chatId = $message['chat']['id'];
         $text = $message['text'] ?? '';
-		$name = $message['chat']['first_name'].' '.$message['chat']['last_name'];
+		$name = $message['chat']['first_name'];//.' '.$message['chat']['last_name']
 
 		//Log::debug('Telegram data:'.var_dump($message));
 
