@@ -19,7 +19,7 @@ class MessageHandler
         $chatId = $message['chat']['id'];
         $text = $message['text'] ?? '';
 
-		Log::debug('Telegram data:').var_dump($message[);
+		Log::debug('Telegram data:'.var_dump($message));
 
         if ($text === '/start') {
             $this->telegram->sendMessage([
