@@ -8,7 +8,7 @@ class MessageHandler
 {
     protected TelegramApi $telegram;
 
-    public function __construct(Telegram $telegram)
+    public function __construct(TelegramApi $telegram)
     {
         $this->telegram = $telegram;
     }

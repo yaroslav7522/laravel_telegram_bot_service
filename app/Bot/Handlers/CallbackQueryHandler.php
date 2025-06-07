@@ -2,13 +2,13 @@
 
 namespace App\Bot\Handlers;
 
-use App\Bot\Telegram;
+use App\Bot\TelegramApi;
 
 class CallbackQueryHandler
 {
     protected Telegram $telegram;
 
-    public function __construct(Telegram $telegram)
+    public function __construct(TelegramApi $telegram)
     {
         $this->telegram = $telegram;
     }
