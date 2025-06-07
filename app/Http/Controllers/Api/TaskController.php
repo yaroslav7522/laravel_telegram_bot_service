@@ -12,7 +12,7 @@ class TaskController extends Controller
 {
     public function index(): JsonResponse
     {
-		Log::debug('Gat all tasks.');
+		//Log::debug('Gat all tasks.');
         $tasks = Task::all();
         return response()->json($tasks);
     }
