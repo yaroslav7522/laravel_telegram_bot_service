@@ -27,6 +27,6 @@ class NotifyTasks extends Command
     public function handle(SyncTaskData $sync)
     {
         $sync->handle();
-        $this->info('Suncronization end successful');        
+        $this->info('Suncronization end successful!');        
     }
 }
