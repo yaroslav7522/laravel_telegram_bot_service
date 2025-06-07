@@ -18,8 +18,9 @@ class MessageHandler
     {
         $chatId = $message['chat']['id'];
         $text = $message['text'] ?? '';
+		$name = $message['chat']['first_name'].' '.$message['chat']['last_name'];
 
-		Log::debug('Telegram data:'.var_dump($message));
+		//Log::debug('Telegram data:'.var_dump($message));
 
         if ($text === '/start') {
             $this->telegram->sendMessage([
@@ -29,7 +30,7 @@ class MessageHandler
         } else {
             $this->telegram->sendMessage([
                 'chat_id' => $chatId,
-                'text' => "Ви написали: {$text}",
+                'text' => "Ви {$name} написали: {$text}",
             ]);
         }
     }
