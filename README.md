@@ -3,7 +3,7 @@
 ## Опис завдання
 
 - адреса бота @YaroslavLaravelBot
-- сервіс розгорнуто <a href="https://cloud.laravel.com/">Laravel Cloud</a>
+- сервіс розгорнуто на <a href="https://cloud.laravel.com/">Laravel Cloud</a> <br>
 https://laravel-telegram-bot-service-main-6bxccl.laravel.cloud/
 - Postman-колекція з прикладами запитів в корені репозиторії
 - в боті додано меню з 2 команд: start, stop (щоб підписатись та відписатись від розсилки відповідно)
