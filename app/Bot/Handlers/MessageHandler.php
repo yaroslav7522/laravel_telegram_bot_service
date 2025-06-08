@@ -29,13 +29,15 @@ class MessageHandler
 			//find user by telegaram_id (chatId)
 			$user = $this->user_ser->findByChatId($chatId);
 			if(!isset($user)){
-				Log::debug('Telegram user nor found');
 				$user = $this->user_ser->create([
 					'name' => $name,
 					'telegram_id' => $chatId,
+					'subscribed' => 1,
 				]);
 			}else{
-				Log::debug('Telegram user found:'.$user);
+				$user = $this->user_ser->update($user['id'],[
+					'subscribed' => 1,
+				]);				
 			}
 			
             $this->telegram->sendMessage([
