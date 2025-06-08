@@ -16,7 +16,7 @@ class TelegramApi
     public function sendMessage(array $params): void
     {
         //Http::post("{$this->telegram_bot_url}/sendMessage", $params);
-		$this->send_request("{$this->telegram_bot_url}/sendMessage", "post", $params);
+		$this->send_request("sendMessage", $params);
     }
 
     public function answerCallbackQuery(array $params): void
@@ -24,11 +24,11 @@ class TelegramApi
         Http::post("{$this->telegram_bot_url}/answerCallbackQuery", $params);
     }
 	
-	private function send_request($url, $method, $params = []){
+	private function send_request($method, $params = []){
 		if(!empty($params)){
-			$url = $url . $method . '?' . http_build_query($params);
+			$url = "{$this->telegram_bot_url}/" . $method . '?' . http_build_query($params);
 		}else{
-			$url = $url . $method;
+			$url = "{$this->telegram_bot_url}/" . $method;
 		}
 
 		return $this->getSslPage($url);
