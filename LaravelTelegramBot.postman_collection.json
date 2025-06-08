@@ -149,14 +149,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api_host}}/api/tasks/12",
+							"raw": "{{api_host}}/api/tasks/1",
 							"host": [
 								"{{api_host}}"
 							],
 							"path": [
 								"api",
 								"tasks",
-								"12"
+								"1"
 							]
 						}
 					},
@@ -257,6 +257,42 @@
 					"path": [
 						"api",
 						"telegram_point"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "run console task",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_host}}/api/console",
+					"host": [
+						"{{api_host}}"
+					],
+					"path": [
+						"api",
+						"console"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "run queue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_host}}/api/queue",
+					"host": [
+						"{{api_host}}"
+					],
+					"path": [
+						"api",
+						"queue"
 					]
 				}
 			},
