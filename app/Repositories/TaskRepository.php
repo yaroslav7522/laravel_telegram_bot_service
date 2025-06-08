@@ -12,7 +12,7 @@ class TaskRepository
             ['id' => $data['id']],
             $data
         );*/
-		$Task = Task::find($id);
+		$Task = Task::find($data['id']);
 		if(isset($Task)){
 			return $this->update( $data['id'], $data);
 		}else{
