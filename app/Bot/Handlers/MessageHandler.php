@@ -34,16 +34,40 @@ class MessageHandler
 					'telegram_id' => $chatId,
 					'subscribed' => 1,
 				]);
+				$this->telegram->sendMessage([
+					'chat_id' => $chatId,
+					'text' => 'Привіт! Це бот для отримання твоїх задач. Натисни Stop щоб відписатись від розсилки.',
+				]);				
 			}else{
 				$user = $this->user_ser->update($user['id'],[
 					'subscribed' => 1,
+				]);	
+				$this->telegram->sendMessage([
+					'chat_id' => $chatId,
+					'text' => 'Ви успішно підписались на розсилку.',
 				]);				
 			}
-			
-            $this->telegram->sendMessage([
-                'chat_id' => $chatId,
-                'text' => 'Привіт! Це бот для отримання твоїх задач. Натисни Start щоб підписатись на розсилку та Stop щоб відписатись.',
-            ]);
+		}elseif ($text === '/stop') {
+			$user = $this->user_ser->findByChatId($chatId);
+			if(!isset($user)){
+				$user = $this->user_ser->create([
+					'name' => $name,
+					'telegram_id' => $chatId,
+					'subscribed' => 0,
+				]);
+				$this->telegram->sendMessage([
+					'chat_id' => $chatId,
+					'text' => 'Ви успішно відписались від розсилки.',
+				]);
+			}else{
+				$user = $this->user_ser->update($user['id'],[
+					'subscribed' => 0,
+				]);	
+				$this->telegram->sendMessage([
+					'chat_id' => $chatId,
+					'text' => 'Ви успішно відписались від розсилки.',
+				]);
+			}				
         } else {
             $this->telegram->sendMessage([
                 'chat_id' => $chatId,
