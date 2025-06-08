@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Log;
 class MessageHandler
 {
     protected TelegramApi $telegram;
+    protected UserService $userService;
 
-    public function __construct(TelegramApi $telegram; UserService $userService;)
+    public function __construct(TelegramApi $telegram, UserService $userService)
     {
         $this->telegram = $telegram;
     }
