@@ -80,4 +80,11 @@ class TaskController extends Controller
 		return response()->json(['message' => 'Console runing...']);
 	}
 	
+	public function runqueue(Request $request)
+	{
+		Artisan::call('queue:work', [
+			'--once' => true,
+		]);
+		return response()->json(['message' => 'Last queue runing...']);
+	}
 }
