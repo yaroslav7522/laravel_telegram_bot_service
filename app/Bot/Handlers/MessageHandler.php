@@ -14,6 +14,7 @@ class MessageHandler
     public function __construct(TelegramApi $telegram, UserService $userService)
     {
         $this->telegram = $telegram;
+        $this->userService = $userService;
     }
 
     public function handle(array $message): void
