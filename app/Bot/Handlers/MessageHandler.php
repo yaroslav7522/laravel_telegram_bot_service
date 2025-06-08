@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Log;
 class MessageHandler
 {
     protected TelegramApi $telegram;
-    protected UserService $userService;
+    protected UserService $user_ser;
 
-    public function __construct(TelegramApi $telegram, UserService $userService)
+    public function __construct(TelegramApi $telegram, UserService $user_ser)
     {
         $this->telegram = $telegram;
-        $this->userService = $userService;
+        $this->user_ser = $user_ser;
     }
 
     public function handle(array $message): void
@@ -27,9 +27,9 @@ class MessageHandler
 
         if ($text === '/start') {
 			//find user by telegaram_id (chatId)
-			$user = $this->userService->findByChatId($chatId);
+			$user = $this->user_ser->findByChatId($chatId);
 			if(!isset($user)){
-				$user = $this->userService->create([
+				$user = $this->user_ser->create([
 					'name' => $name,
 					'telegram_id' => $chatId,
 				]);
