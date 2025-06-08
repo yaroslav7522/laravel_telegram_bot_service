@@ -8,6 +8,7 @@ use App\Models\Task;
 use Illuminate\Http\JsonResponse;
 use App\Services\TaskApiService;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 
 class TaskController extends Controller
@@ -72,5 +73,10 @@ class TaskController extends Controller
 			return response()->json(['message' => 'Task not found']);
 		}
     }
+	
+	public function runconsol()
+	{
+		Artisan::call('app:notify-tasks');
+	}
 	
 }

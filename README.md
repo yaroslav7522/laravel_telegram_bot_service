@@ -1,4 +1,16 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank">
+
+## Опис завдання
+
+- адреса бота @YaroslavLaravelBot
+- сервіс розгорнуто <a href="https://cloud.laravel.com/">Laravel Cloud</a>
+https://laravel-telegram-bot-service-main-6bxccl.laravel.cloud/
+- Postman-колекція з прикладами запитів в корені репозиторії
+- в боті додано меню з 2 команд: start, stop (щоб підписатись та відписатись від розсилки відповідно)
+
+
+
+<img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
