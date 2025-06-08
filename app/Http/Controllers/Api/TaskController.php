@@ -76,7 +76,7 @@ class TaskController extends Controller
 	
 	public function runconsol(Request $request)
 	{
-		//Artisan::call('app:notify-tasks');
+		Artisan::call('app:notify-tasks');
 		return response()->json(['message' => 'Console runing...']);
 	}
 	
