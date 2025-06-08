@@ -15,6 +15,11 @@ class UserRepository
     {
         return User::find($id);//findOrFail
     }
+	
+    public function findByChatId($t_id)
+    {
+        return User::where('telegram_id', $t_id)->get();
+    }	
 
     public function create(array $data)
     {
