@@ -5,7 +5,8 @@ namespace App\Actions;
 use App\Services\TaskApiService;
 use App\Repositories\TaskRepository;
 use App\Repositories\UserRepository;
-use App\Bot\TelegramApi;
+//use App\Bot\TelegramApi;
+use App\Jobs\SendTelegramMessage;
 
 class SyncTaskData
 {
@@ -13,7 +14,7 @@ class SyncTaskData
         protected TaskApiService $apiService,
         protected TaskRepository $taskRepository,
         protected UserRepository $userRepository,
-        protected TelegramApi $telegram
+        //protected TelegramApi $telegram
     ) {}
 
     public function handle(): void
@@ -39,10 +40,11 @@ class SyncTaskData
 			if($user['id'] > 5) continue;
 			$tasks = $this->taskRepository->getActiveByUser($user['id']);
 			foreach($tasks as $task){
-				$this->telegram->sendMessage([
-					'chat_id' => $user['telegram_id'],
-					'text' => 'Завдання #'.$task['id'].': '.$task['title'],
-				]);				
+				//$this->telegram->sendMessage([
+				//	'chat_id' => $user['telegram_id'],
+				//	'text' => 'Завдання #'.$task['id'].': '.$task['title'],
+				//]);	
+				SendTelegramMessage::dispatch($user['telegram_id'], 'Завдання #'.$task['id'].': '.$task['title']);
 			}
 		}
 	}
