@@ -8,10 +8,16 @@ class TaskRepository
 {
     public function createOrUpdate(array $data): Task
     {
-        return Task::updateOrCreate(
+        /*return Task::updateOrCreate(
             ['id' => $data['id']],
             $data
-        );
+        );*/
+		$Task = Task::find($id);
+		if(isset($Task)){
+			return $this->update( $data['id'], $data);
+		}else{
+			return $this->create($data);
+		}
     }
 	
     public function all()
