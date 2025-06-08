@@ -17,6 +17,11 @@ class UserService
     {
         return $this->userRepository->find($id);
     }
+	
+    public function findByChatId($id)
+    {
+        return $this->userRepository->findByChatId($id);
+    }	
 
     public function create(array $data)
     {
