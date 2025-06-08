@@ -31,10 +31,10 @@ class TelegramApi
 			$url = $url . $method;
 		}
 
-		return getSslPage($url);
+		return $this->getSslPage($url);
 	}
 
-	private getSslPage($url) {
+	private function getSslPage($url) {
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 		curl_setopt($ch, CURLOPT_HEADER, false);
