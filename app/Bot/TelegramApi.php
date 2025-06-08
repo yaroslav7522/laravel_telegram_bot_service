@@ -2,7 +2,7 @@
 
 namespace App\Bot;
 
-use Illuminate\Support\Facades\Http;
+//use Illuminate\Support\Facades\Http;
 
 class TelegramApi
 {
@@ -21,7 +21,8 @@ class TelegramApi
 
     public function answerCallbackQuery(array $params): void
     {
-        Http::post("{$this->telegram_bot_url}/answerCallbackQuery", $params);
+        //Http::post("{$this->telegram_bot_url}/answerCallbackQuery", $params);
+		$this->send_request("answerCallbackQuery", $params);
     }
 	
 	private function send_request($method, $params = []){
