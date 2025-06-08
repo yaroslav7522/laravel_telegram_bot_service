@@ -13,4 +13,41 @@ class TaskRepository
             $data
         );
     }
+	
+    public function all()
+    {
+        return Task::all();
+    }
+
+    public function find($id)
+    {
+        return Task::find($id);
+    }
+
+    public function create(array $data)
+    {
+        return Task::create($data);
+    }
+
+    public function update($id, array $data)
+    {
+        $Task = Task::find($id);
+		if(isset($Task)){
+			$Task->update($data);
+			return $Task;
+		}else{
+			return false;
+		}
+    }
+
+    public function delete($id)
+    {
+        $Task = Task::find($id);
+		if(isset($Task)){
+			$Task->delete();
+			return true;
+		}else{
+			return false;
+		}
+    }	
 }
