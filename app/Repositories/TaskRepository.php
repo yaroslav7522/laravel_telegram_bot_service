@@ -59,6 +59,6 @@ class TaskRepository
 	
     public function getActiveByUser($user_id)
     {
-        return Task::where('user_id', $user_id)->where('completed', false)->get();
+        return Task::where('user_id', $user_id)->where('completed', false)->orderBy('id', 'desc')->get();
     }	
 }
