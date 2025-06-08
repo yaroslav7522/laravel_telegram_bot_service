@@ -47,4 +47,8 @@ class UserRepository
 			return false;
 		}
     }
+	
+	public function getSubscribed(){
+		return User::where('subscribed', true)->get();
+	}
 }

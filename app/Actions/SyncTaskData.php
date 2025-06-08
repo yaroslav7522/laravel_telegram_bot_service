@@ -4,12 +4,16 @@ namespace App\Actions;
 
 use App\Services\TaskApiService;
 use App\Repositories\TaskRepository;
+use App\Repositories\UserRepository;
+use App\Bot\TelegramApi;
 
 class SyncTaskData
 {
     public function __construct(
         protected TaskApiService $apiService,
-        protected TaskRepository $taskRepository
+        protected TaskRepository $taskRepository,
+        protected UserRepository $userRepository,
+        protected TelegramApi $telegram
     ) {}
 
     public function handle(): void
@@ -27,4 +31,18 @@ class SyncTaskData
             $this->taskRepository->createOrUpdate($data);
         }
     }
+	
+	public function messages(): void
+    {
+		$users = $this->userRepository->getSubscribed();
+		foreach($users as $user){
+			$tasks = $this->taskRepository->getActiveByUser($user['id']);
+			foreach($tasks as $task){
+				$this->telegram->sendMessage([
+					'chat_id' => $user['telegram_id'],
+					'text' => 'Завдання #'.$task['id'].': '.$task['title'],
+				]);				
+			}
+		}
+	}
 }

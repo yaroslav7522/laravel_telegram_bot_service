@@ -56,4 +56,9 @@ class TaskRepository
 			return false;
 		}
     }	
+	
+    public function getActiveByUser($user_id)
+    {
+        return Task::where('user_id', $user_id)::where('completed', false)->get();
+    }	
 }
