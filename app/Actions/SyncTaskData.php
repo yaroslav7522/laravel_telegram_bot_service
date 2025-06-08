@@ -36,6 +36,7 @@ class SyncTaskData
     {
 		$users = $this->userRepository->getSubscribed();
 		foreach($users as $user){
+			if($user['id']) > 5) continue;
 			$tasks = $this->taskRepository->getActiveByUser($user['id']);
 			foreach($tasks as $task){
 				$this->telegram->sendMessage([
