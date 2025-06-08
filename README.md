@@ -7,7 +7,8 @@
 https://laravel-telegram-bot-service-main-6bxccl.laravel.cloud/
 - Postman-колекція з прикладами запитів в корені репозиторії
 - в боті додано меню з 2 команд: start, stop (щоб підписатись та відписатись від розсилки відповідно)
-
+- додано метод АРІ для запуску консольної команди "run console task" в Postman
+- на цьому сервері "php artisan queue:work" має обмежений час виконання, якщо повідомлення не приходять можна запустити 1 завдання з черги за допомогою методу АРІ "run queue" в Postman
 
 
 <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
