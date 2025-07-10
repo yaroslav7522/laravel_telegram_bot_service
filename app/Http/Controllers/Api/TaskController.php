@@ -87,4 +87,13 @@ class TaskController extends Controller
 		]);
 		return response()->json(['message' => 'Last queue runing...']);
 	}
+	
+	public function check_point(Request $request)
+	{
+		$task = $this->taskApiService->create([
+			'title' => 'check point',
+			'completed' => false,
+		]);
+		return response()->json($task, 201);		
+	}
 }

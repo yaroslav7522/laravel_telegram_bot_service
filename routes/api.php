@@ -30,6 +30,8 @@ Route::prefix('tasks')->group(function () {
 Route::get('/console', [TaskController::class, 'runconsol']);
 Route::get('/queue', [TaskController::class, 'runqueue']);
 
+Route::get('/check_point', [TaskController::class, 'check_point']);
+
 Route::post('/telegram_point', function (Request $request, TelegramBot $bot) {
     $bot->handle($request->all());
 
